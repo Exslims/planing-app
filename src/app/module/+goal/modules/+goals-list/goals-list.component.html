@@ -1,0 +1,14 @@
+<div class="pl-goals-list">
+  <div class="pl-goals-list-header">
+    <div class="mat-h2 pl-goals-list-header-title">Мои цели</div>
+    <button mat-raised-button [color]="'primary'" (click)="_openCreateGoalDialog()">Новая цель</button>
+  </div>
+  <div class="pl-goals-list-content mt-16">
+    <div class="pl-goals-list-card" *ngFor="let goal of _goals$ | async; index as i" [class.mt-8]="i > 0">
+      <div class="pl-goals-list-card-header">
+        <div class="mat-h4">{{goal.title}}</div>
+        <mat-icon svgIcon="arrow-right"></mat-icon>
+      </div>
+    </div>
+  </div>
+</div>

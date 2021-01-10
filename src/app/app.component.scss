@@ -1,0 +1,14 @@
+.pl-app {
+  display: flex;
+
+  &-menu {
+    display: flex;
+    width: 260px;
+    padding: 50px 20px 40px;
+  }
+
+  &-content {
+    display: flex;
+    padding: 50px 0;
+  }
+}

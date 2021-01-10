@@ -1,0 +1,17 @@
+<div mat-dialog-title>Новая цель</div>
+<div mat-dialog-content [formGroup]="_formGroup">
+  <mat-form-field class="pl-create-task-name">
+    <input [type]="'text'" matInput
+           [formControlName]="_controlNames.TASK_NAME"
+           [errorStateMatcher]="_matcher"
+           [placeholder]="'Что нужно сделать? (например, “Открыть ИИН”)'">
+    <mat-error *ngIf="_formGroup.get(_controlNames.TASK_NAME).hasError('required')">
+      Название обязательное
+    </mat-error>
+  </mat-form-field>
+  <pl-assign-tag-control [formControlName]="_controlNames.TAGS"></pl-assign-tag-control>
+</div>
+<div mat-dialog-actions [align]="'end'">
+  <button mat-button (click)="_close()">Закрыть</button>
+  <button mat-button [disabled]="!_formGroup.valid" (click)="_createGoal()" cdkFocusInitial>Создать</button>
+</div>

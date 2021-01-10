@@ -1,0 +1,39 @@
+<div class="pl-create-goal">
+  <div class="pl-create-goal-main">
+    <div class="mat-h2">Новая цель</div>
+    <mat-form-field class="pl-create-goal-name">
+      <input [type]="'text'" matInput
+             [formControl]="_formControl"
+             [errorStateMatcher]="_matcher"
+             [placeholder]="'Введите название'">
+      <mat-error *ngIf="_formControl.hasError('required')">
+        Название обязательное
+      </mat-error>
+    </mat-form-field>
+    <div class="pl-create-goal-tasks">
+      <div class="pl-create-goal-tasks-header">
+        <button mat-raised-button [color]="'primary'" (click)="_openCreateTask()">
+          <mat-icon>add</mat-icon>
+          Новая задача
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="pl-create-goal-back">
+    <button mat-button (click)="_back()">
+      <mat-icon>keyboard_backspace</mat-icon>
+      Назад
+    </button>
+  </div>
+</div>
+<div class="pl-create-goal-footer">
+  <button class="pl-create-goal-footer-item" mat-raised-button (click)="_back()">
+    Назад
+  </button>
+  <button class="pl-create-goal-footer-item" mat-raised-button
+          [color]="'primary'"
+          [disabled]="!_formControl.valid"
+          (click)="_createGoal()">
+    Создать цель
+  </button>
+</div>
